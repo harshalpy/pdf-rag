@@ -87,14 +87,7 @@ app.post("/chat", async (req, res) => {
         return res.status(400).json({ error: "Question required" })
     }
 
-    return res.json({ 
-        id: uuid(),
-        answer: "Hello",
-        role: "assistant",
-        timestamp: new Date().toDateString()
-    })
     try {
-        
         const Embedding = (await openai.embeddings.create({
             model: "text-embedding-3-large",
             input: message
